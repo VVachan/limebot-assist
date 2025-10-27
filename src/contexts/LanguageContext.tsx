@@ -14,6 +14,7 @@ const translations: Translations = {
   contact: { en: "Contact", hi: "संपर्क करें", kn: "ಸಂಪರ್ಕಿಸಿ", ta: "தொடர்பு", te: "సంప్రదించండి" },
   login: { en: "Login", hi: "लॉगिन", kn: "ಲಾಗಿನ್", ta: "உள்நுழைய", te: "లాగిన్" },
   signUpFree: { en: "Sign Up Free", hi: "मुफ्त साइन अप करें", kn: "ಉಚಿತ ಸೈನ್ ಅಪ್", ta: "இலவச பதிவு", te: "ఉచిత సైన్ అప్" },
+  signup: { en: "Sign Up", hi: "साइन अप करें", kn: "ಸೈನ್ ಅಪ್", ta: "பதிவு செய்", te: "సైన్ అప్" },
   welcomeBack: { en: "Welcome Back", hi: "वापसी पर स्वागत है", kn: "ಮತ್ತೆ ಸ್ವಾಗತ", ta: "மீண்டும் வரவேற்கிறோம்", te: "తిరిగి స్వాగతం" },
   aiPoweredService: { 
     en: "AI-Powered Customer Service", 
@@ -36,6 +37,11 @@ const translations: Translations = {
   close: { en: "Close", hi: "बंद करें", kn: "ಮುಚ್ಚಿ", ta: "மூடு", te: "మూసివేయి" },
   email: { en: "Email", hi: "ईमेल", kn: "ಇಮೇಲ್", ta: "மின்னஞ்சல்", te: "ఇమెయిల్" },
   password: { en: "Password", hi: "पासवर्ड", kn: "ಪಾಸ್‌ವರ್ಡ್", ta: "கடவுச்சொல்", te: "పాస్‌వర్డ్" },
+  name: { en: "Name", hi: "नाम", kn: "ಹೆಸರು", ta: "பெயர்", te: "పేరు" },
+  alreadyAccount: { en: "Already have an account?", hi: "पहले से खाता है?", kn: "ಈಗಾಗಲೇ ಖಾತೆ ಹೊಂದಿದ್ದೀರಾ?", ta: "ஏற்கனவே கணக்கு உள்ளதா?", te: "ఇప్పటికే ఖాతా ఉందా?" },
+  noAccount: { en: "Don't have an account?", hi: "खाता नहीं है?", kn: "ಖಾತೆ ಇಲ್ಲವೇ?", ta: "கணக்கு இல்லையா?", te: "ఖాతా లేదా?" },
+  createAccount: { en: "Create your account", hi: "अपना खाता बनाएं", kn: "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ರಚಿಸಿ", ta: "உங்கள் கணக்கை உருவாக்கவும்", te: "మీ ఖాతాను సృష్టించండి" },
+  loginAccount: { en: "Login to your account", hi: "अपने खाते में लॉगिन करें", kn: "ನಿಮ್ಮ ಖಾತೆಗೆ ಲಾಗಿನ್ ಮಾಡಿ", ta: "உங்கள் கணக்கில் உள்நுழையவும்", te: "మీ ఖాతాలోకి లాగిన్ అవ్వండి" },
 };
 
 interface LanguageContextType {

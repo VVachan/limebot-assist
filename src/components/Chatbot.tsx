@@ -24,6 +24,34 @@ export const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const { t } = useLanguage();
 
+  const retailFAQ = [
+    { q: "store hours", a: "Our stores are open Monday-Saturday 9 AM to 9 PM, Sunday 10 AM to 8 PM." },
+    { q: "return policy", a: "We accept returns within 30 days with receipt. Items must be unused and in original packaging." },
+    { q: "shipping", a: "Standard shipping takes 5-7 business days. Express shipping available for 2-3 days delivery." },
+    { q: "payment methods", a: "We accept all major credit cards, debit cards, UPI, net banking, and cash on delivery." },
+    { q: "track order", a: "You can track your order using the tracking number sent to your email or check 'My Orders' section." },
+    { q: "cancel order", a: "Orders can be cancelled within 24 hours of placement. Go to 'My Orders' and select cancel." },
+    { q: "customer support", a: "Our customer support is available 24/7. Call us at 1800-XXX-XXXX or email support@acs.com" },
+    { q: "exchange", a: "Exchanges are available within 15 days. Product must be in original condition with tags attached." },
+    { q: "discount", a: "Check our website for ongoing offers. Sign up for our newsletter to get exclusive discount codes." },
+    { q: "membership", a: "Join our loyalty program for free and earn points on every purchase. Points can be redeemed for discounts." },
+    { q: "gift card", a: "Gift cards are available in denominations of ₹500, ₹1000, ₹2000, and ₹5000. They never expire." },
+    { q: "size guide", a: "Visit our size guide page for detailed measurements. We also offer free size exchanges if needed." },
+    { q: "wholesale", a: "For wholesale inquiries, please contact our B2B team at wholesale@acs.com or call 1800-XXX-1111" },
+    { q: "franchise", a: "We're expanding! For franchise opportunities, email franchise@acs.com with your location details." },
+    { q: "warranty", a: "All electronics come with manufacturer warranty. Clothing and accessories have quality guarantee." },
+  ];
+
+  const findAnswer = (question: string) => {
+    const lowerQ = question.toLowerCase();
+    for (const faq of retailFAQ) {
+      if (lowerQ.includes(faq.q)) {
+        return faq.a;
+      }
+    }
+    return "I'm here to help! Please ask about store hours, returns, shipping, payments, orders, or any other retail questions.";
+  };
+
   const handleSend = async () => {
     if (!input.trim()) return;
 
@@ -34,19 +62,19 @@ export const Chatbot = () => {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const userInput = input;
     setInput("");
     setIsTyping(true);
 
-    // Simulate bot response - will be replaced with actual AI
     setTimeout(() => {
       const botMessage: Message = {
-        text: `I received your message: "${input}". This is a demo response. The AI functionality will be connected soon!`,
+        text: findAnswer(userInput),
         sender: "bot",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMessage]);
       setIsTyping(false);
-    }, 1500);
+    }, 800);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

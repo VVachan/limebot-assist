@@ -13,6 +13,21 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !password) {
+      setMessage("Please fill in all fields");
+      return;
+    }
+    // Store user data in localStorage (demo purposes)
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    users.push({ name, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    setMessage("Account created successfully! Please login.");
+    setTimeout(() => window.location.href = "/login", 2000);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -24,12 +39,18 @@ const Signup = () => {
             <div className="flex flex-col items-center mb-8">
               <Bot className="h-16 w-16 text-primary mb-4" />
               <h1 className="text-3xl font-bold text-foreground">{t("signUpFree")}</h1>
-              <p className="text-muted-foreground mt-2">Create your account</p>
+              <p className="text-muted-foreground mt-2">{t("createAccount")}</p>
             </div>
             
-            <form className="space-y-6">
+            {message && (
+              <div className={`text-center p-3 rounded-lg ${message.includes("success") ? "bg-primary/20 text-primary" : "bg-destructive/20 text-destructive"}`}>
+                {message}
+              </div>
+            )}
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Name</Label>
+                <Label htmlFor="name" className="text-foreground">{t("name")}</Label>
                 <div className="relative">
                   <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
                   <Input
@@ -79,7 +100,7 @@ const Signup = () => {
             </form>
             
             <p className="text-center text-muted-foreground mt-6">
-              Already have an account?{" "}
+              {t("alreadyAccount")}{" "}
               <Link to="/login" className="text-primary hover:underline font-semibold">
                 {t("login")}
               </Link>

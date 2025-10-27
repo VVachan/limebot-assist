@@ -23,7 +23,7 @@ const Login = () => {
             <div className="flex flex-col items-center mb-8">
               <Bot className="h-16 w-16 text-primary mb-4" />
               <h1 className="text-3xl font-bold text-foreground">{t("welcomeBack")}</h1>
-              <p className="text-muted-foreground mt-2">Login to your account</p>
+              <p className="text-muted-foreground mt-2">{t("loginAccount")}</p>
             </div>
             
             <form className="space-y-6">
@@ -63,9 +63,9 @@ const Login = () => {
             </form>
             
             <p className="text-center text-muted-foreground mt-6">
-              Don't have an account?{" "}
+              {t("noAccount")}{" "}
               <Link to="/signup" className="text-primary hover:underline font-semibold">
-                {t("signUpFree")}
+                {t("signup")}
               </Link>
             </p>
           </div>
