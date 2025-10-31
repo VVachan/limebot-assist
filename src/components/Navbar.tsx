@@ -24,7 +24,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-4">
@@ -97,7 +97,7 @@ export const Navbar = () => {
       >
         <div className="absolute inset-0 bg-black/50" onClick={() => setIsSidebarOpen(false)} />
         <div
-          className={`absolute left-0 top-0 bottom-0 w-64 bg-black border-r border-border transition-transform duration-300 ${
+          className={`absolute left-0 top-0 bottom-0 w-64 bg-white/10 backdrop-blur-md border-r border-white/20 transition-transform duration-300 ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
